@@ -1,4 +1,4 @@
-ÕâÊÇ¸öMavenÏîÄ¿Å¶
+ï»¿è¿™æ˜¯ä¸ªMavené¡¹ç›®å“¦
  SpringMVC+Spring+MySQL+Hibernate+SpringSecurity
 
-¹ş¹ş...
+å“ˆå“ˆ...
