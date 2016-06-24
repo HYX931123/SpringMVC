@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Maven-MVC:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="Maven-MVC.war">
+      <element id="artifact" artifact-name="Maven-MVC:war exploded" />
+    </root>
+  </artifact>
+</component>
