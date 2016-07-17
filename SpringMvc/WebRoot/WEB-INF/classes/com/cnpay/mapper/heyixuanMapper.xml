@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!--namespace：必须与对应的接口全类名一致 id:必须与对应接口的某个对应的方法名一致-->
+<mapper namespace="com.cnpay.mapper.HeYixuanMapper">
+  
+  <!-- 传入对象的插入方法 -->
+  <insert id="insert" parameterType="com.cnpay.model.HeYixuan">
+    INSERT INTO HeYixuan ([title],[contents],[pushTime],[createTime],[createUser]) VALUES (#{title},#{contents},#{pushTime},#{createTime},#{createUser})
+    <selectKey keyProperty="id" resultType="int" order="AFTER">
+            SELECT @@IDENTITY
+    </selectKey>
+  </insert>
+  
+  <!-- 传入map参数类型的插入方法
+  <insert id="insert" parameterType="java.util.Map">
+    INSERT INTO HeYixuan ([title],[contents],[pushTime],[createTime],[createUser]) VALUES (#{title},#{contents},#{pushTime},#{createTime},#{createUser})
+    <selectKey keyProperty="id" resultType="int" order="BEFORE">
+            SELECT SCOPE_IDENTITY()  AS ID
+    </selectKey>
+  </insert> -->
+  
+  <select id="delete" parameterType="java.lang.Integer">
+    delete from HeYixuan where id = #{id}
+  </select>
+  
+  <update id="update" parameterType="com.cnpay.model.HeYixuan" statementType="PREPARED">
+    update HeYixuan
+    <set>
+      <if test="title != null">title = #{title},</if>
+      <if test="contens != null">contents = #{contents}</if>
+    </set>
+    where id = #{id}
+  </update>
+  
+  <select id="search" parameterType="java.util.Map" resultType="com.cnpay.model.HeYixuan">
+    select * from HeYixuan
+  </select>
+  
+  <select id="searchByTitle" parameterType="java.lang.String" resultType="com.cnpay.model.HeYixuan">
+    select * from HeYixuan where title like '%${_parameter}%'
+  </select>
+  
+  <select id="searchById" parameterType="java.lang.Integer" resultType="com.cnpay.model.HeYixuan">
+    select * from HeYixuan where id = #{id}
+  </select>
+  
+</mapper>
